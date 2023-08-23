@@ -8,6 +8,8 @@ const dropDown=document.querySelector(".dropDown")
 const dropElem=document.querySelector(".drop")
 const region=document.querySelectorAll(".region")
 const search=document.querySelector(".search")
+const toggle=document.querySelector(".toggle")
+const moon=document.querySelector(".moon")
 // note: do NOT use a period before the class name
 const regionName=document.getElementsByClassName("regionName")
 const countryName=document.getElementsByClassName("countryName")
@@ -89,15 +91,19 @@ region.forEach(element => {
     })
 });
 
+// iteratively checks each elem in the array made of country names against input
 search.addEventListener("input", ()=> {
     // console.log(search.value);
-    Array.from(regionName).forEach(elem => {
-        // console.log(elem.innerText)
-        // console.log(element.innerText)
-        if(elem.innerText.includes(element.innerText) || element.innerText=="All") {
+    Array.from(countryName).forEach(elem => {
+        if(elem.innerText.toLowerCase().includes(search.value.toLowerCase())) {
             elem.parentElement.parentElement.style.display=""
         } else {
             elem.parentElement.parentElement.style.display="none"
         }
     });
+})
+
+toggle.addEventListener("click", ()=> {
+    document.body.classList.toggle("dark-mode")
+    moon.classList.toggle("fas")
 })

@@ -6,12 +6,21 @@
     box-sizing: border-box;
 }
 
-body{
+body {
+    font-family: "Nunito Sans", sans-serif;
+    --bgColor:hsl(0, 0%, 98%);
+    --countrybgColor:hsl(0, 0%, 98%);
+    --fontColor:hsl(200, 15%, 8%);
     width: 100%;
     min-height: 100vh;
-    --bgColor:hsl(0, 0%, 98%);
-    --fontColor:hsl(200, 15%, 8%);
-    font-family: "Nunito Sans", sans-serif;
+}
+
+.dark-mode {
+    --bgColor:hsl(207, 26%, 17%);
+    --fontColor:hsl(0, 0%, 98%);
+    --countrybgColor: hsl(209, 23%, 22%);
+    background: var(--bgColor);
+    color: var(--fontColor);
 }
 
 .container {
@@ -23,6 +32,7 @@ body{
 
 .container:nth-child(1) {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    background: var(--countrybgColor);
 }
 
 button{
@@ -34,6 +44,7 @@ button{
 .toggle {
     font-size: 18px;
     cursor: pointer;
+    color: var(--fontColor);
 }
 
 .toggle i {
@@ -49,6 +60,8 @@ button{
 }
 
 .form-control input {
+    background: var(--countrybgColor);
+    color: var(--fontColor);
     width: 100%;
     padding: 17px 14px;
     outline: 0;
@@ -58,6 +71,7 @@ button{
 }
 
 .form-control i {
+    background: var(--countrybgColor);
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -65,8 +79,11 @@ button{
 }
 
 .dropDownContainer {
+    background: var(--countrybgColor);
     width: 200px;
     position: relative;
+    border-radius: 5px;
+    user-select: none;
 }
 
 .dropDown {
@@ -77,6 +94,7 @@ button{
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+    color: var(--fontColor);
 }
 
 .dropDown i {
@@ -87,15 +105,21 @@ button{
     letter-spacing: 0.5px;
 }
 
+.drop :hover {
+    background:rgba(0, 0, 0, 0.3);
+}
+
 .drop {
+    background: var(--bgColor);
+    background: var(--countrybgColor);
     position: absolute;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     top: 4rem;
     padding: 10px 14px;
     width: 100%;
     border-radius: 5px;
-    background: var(--bgColor);
     cursor: pointer;
+    text-align: center;
 }
 
 .drop p {
@@ -107,8 +131,8 @@ button{
 }
 
 .country {
+    background: var(--countrybgColor);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    width: 100%;
     border-radius: 5px;
     overflow: hidden;
     display: flex;
@@ -149,4 +173,14 @@ button{
 
 .showDropDown {
     display: none;
+}
+
+.countryExtra {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bgColor);
+    padding: 30px;
 }
