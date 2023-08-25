@@ -10,6 +10,8 @@ const region=document.querySelectorAll(".region")
 const search=document.querySelector(".search")
 const toggle=document.querySelector(".toggle")
 const moon=document.querySelector(".moon")
+const back=document.querySelector(".back")
+const countryExtra=document.querySelector(".countryExtra")
 // note: do NOT use a period before the class name
 const regionName=document.getElementsByClassName("regionName")
 const countryName=document.getElementsByClassName("countryName")
@@ -44,6 +46,11 @@ async function getCountry() {
 // running getCountry function
 getCountry()
 
+// toggleMore toggles the extra info page, which is used in the next function
+function toggleMore() {
+    countryExtra.classList.toggle("show");
+}
+
 // showCountry(data) shows country data for each country in the array
 function showCountry(data) {
     // creates a div
@@ -62,10 +69,13 @@ function showCountry(data) {
         <p><strong>Population:</strong> ${data.population}</p>
         <p class="regionName"><strong>Region:</strong> ${data.region}</p>
         <p><strong>Capital:</strong> ${data.capital}</p>
+        <button class="more" onclick="toggleMore()"> More Info </button>
     </div>
     `
+    
     // appendChild appends a country node to the last child of countriesElem
     countriesElem.appendChild(country);
+    
 }
 
 // addEventListener executes when a click is detected on dropDown
@@ -106,4 +116,8 @@ search.addEventListener("input", ()=> {
 toggle.addEventListener("click", ()=> {
     document.body.classList.toggle("dark-mode")
     moon.classList.toggle("fas")
+})
+
+back.addEventListener("click", ()=> {
+    countryExtra.classList.toggle("show")
 })

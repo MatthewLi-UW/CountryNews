@@ -11,6 +11,8 @@ body {
     --bgColor:hsl(0, 0%, 98%);
     --countrybgColor:hsl(0, 0%, 98%);
     --fontColor:hsl(200, 15%, 8%);
+    --fontColor2: rgb(42, 42, 173);
+    --arrowColor: black;
     width: 100%;
     min-height: 100vh;
 }
@@ -21,6 +23,8 @@ body {
     --countrybgColor: hsl(209, 23%, 22%);
     background: var(--bgColor);
     color: var(--fontColor);
+    --fontColor2: rgb(135, 135, 255);
+    --arrowColor: rgb(255, 255, 255);
 }
 
 .container {
@@ -33,6 +37,10 @@ body {
 .container:nth-child(1) {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     background: var(--countrybgColor);
+}
+
+.arrow {
+    color: var(--arrowColor);
 }
 
 button{
@@ -150,6 +158,16 @@ button{
     object-fit: cover;
 }
 
+.more {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--fontColor2);
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
 .country-info {
     padding: 20px 17px;
     line-height: 35px;
@@ -183,4 +201,63 @@ button{
     height: 100%;
     background: var(--bgColor);
     padding: 30px;
+}
+
+.back {
+    position: absolute;
+    top: 3rem;
+    left: 30px;
+    background: #fdfdfd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.leftExtra {
+    width: 50%;
+}
+
+.leftExtra img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rightExtra {
+    width: 50%;
+    margin-left: 40px;
+}
+
+.rightExtra h1 {
+    margin: 10px 0;
+    letter-spacing: 1px;
+    font-size: 40px;
+}
+
+.extraInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inner p {
+    letter-spacing: 1px;
+}
+
+.inner p>strong {
+    font-weight: 600;
+}
+
+.show {
+    display: none;
 }
