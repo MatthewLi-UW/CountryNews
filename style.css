@@ -41,6 +41,11 @@ body {
 
 .arrow {
     color: var(--arrowColor);
+    transition: all 300ms ease-in-out;
+}
+
+.flip {
+    transform: rotate(180deg);
 }
 
 button{
@@ -87,11 +92,11 @@ button{
 }
 
 .dropDownContainer {
-    background: var(--countrybgColor);
     width: 200px;
     position: relative;
     border-radius: 5px;
     user-select: none;
+    background: var(--countrybgColor);
 }
 
 .dropDown {
@@ -102,7 +107,6 @@ button{
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    color: var(--fontColor);
 }
 
 .dropDown i {
@@ -118,20 +122,35 @@ button{
 }
 
 .drop {
-    background: var(--bgColor);
-    background: var(--countrybgColor);
     position: absolute;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     top: 4rem;
-    padding: 10px 14px;
     width: 100%;
-    border-radius: 5px;
     cursor: pointer;
-    text-align: center;
+    text-align: left;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+.region {
+    padding: 4px 10px;
+    background: var(--countrybgColor);
+}
+  
 .drop p {
-    margin: 5px 0;
+    margin: 0px 0;
 }
 
 .countries {

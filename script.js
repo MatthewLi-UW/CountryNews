@@ -12,6 +12,7 @@ const toggle=document.querySelector(".toggle")
 const moon=document.querySelector(".moon")
 const back=document.querySelector(".back")
 const countryExtra=document.querySelector(".countryExtra")
+const arrow=document.querySelector(".arrow")
 // note: do NOT use a period before the class name
 const regionName=document.getElementsByClassName("regionName")
 const countryName=document.getElementsByClassName("countryName")
@@ -83,6 +84,7 @@ function showCountry(data) {
 dropDown.addEventListener("click", ()=>{
     // toggles the "showDropDown" class for dropElem
     dropElem.classList.toggle("showDropDown");
+    arrow.classList.toggle("flip");
 })
 
 // iteratively checks if the region matches for each country
