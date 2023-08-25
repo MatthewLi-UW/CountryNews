@@ -28,10 +28,7 @@ async function getCountry() {
         // await pauses execution until a promise is resolved or rejected
         const url=await fetch("https://restcountries.com/v3.1/all")
         // extracts JSON data from the url returned by the previous step
-        // await pauses execution until the JSON data is available
         const response=await url.json()
-        // log contents of response constant into the console
-        console.log(response);
         // iteratively execute showCountry function for each element of the array
         //  in this case, the array is response
         //  for arrow functions: param => expression
@@ -73,7 +70,6 @@ function showCountry(data) {
         <button class="more" onclick="toggleMore()"> More Info </button>
     </div>
     `
-    
     // appendChild appends a country node to the last child of countriesElem
     countriesElem.appendChild(country);
     
@@ -81,8 +77,7 @@ function showCountry(data) {
 
 // addEventListener executes when a click is detected on dropDown
 //  ()=> is an unnamed function (basically lambda)
-dropDown.addEventListener("click", ()=>{
-    // toggles the "showDropDown" class for dropElem
+dropDown.addEventListener("click", (event)=>{
     dropElem.classList.toggle("showDropDown");
     arrow.classList.toggle("flip");
 })

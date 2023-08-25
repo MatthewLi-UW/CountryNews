@@ -41,7 +41,7 @@ body {
 
 .arrow {
     color: var(--arrowColor);
-    transition: all 300ms ease-in-out;
+    transition: transform 200ms ease-in-out;
 }
 
 .flip {
@@ -223,10 +223,11 @@ button{
 }
 
 .back {
+    background-color: var(--countrybgColor);
+    color: var(--fontColor);
     position: absolute;
     top: 3rem;
     left: 30px;
-    background: #fdfdfd;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     padding: 10px 20px;
     font-size: 16px;
