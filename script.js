@@ -10,7 +10,6 @@ const region=document.querySelectorAll(".region")
 const search=document.querySelector(".search")
 const toggle=document.querySelector(".toggle")
 const moon=document.querySelector(".moon")
-const back=document.querySelector(".back")
 const countryExtra=document.querySelector(".countryExtra")
 const arrow=document.querySelector(".arrow")
 // note: do NOT use a period before the class name
@@ -45,8 +44,35 @@ async function getCountry() {
 getCountry()
 
 // toggleMore toggles the extra info page, which is used in the next function
-function toggleMore() {
+function toggleMore(data) {
     countryExtra.classList.toggle("show");
+    countryExtra.innerHTML = `<button class="back">Back</button>
+    <div class="extra">
+        <div class="leftExtra">
+            <img src="${data.flags.svg}" alt="">
+        </div>
+        <div class="rightExtra">
+            <h1>Germany</h1>
+            <div class="extraInfo">
+                <div class="innerLeft inner">
+                    <p><strong>Native Name:</strong> ${data.name.common}</p>
+                    <p><strong>Region:</strong> ${data.region}</p>
+                    <p><strong>Population:</strong> ${data.population}</p>
+                    <p><strong>Sub Region:</strong> ${data.subregion}</p>
+                    <p><strong>Capital:</strong> ${data.capital}</p>
+                </div>
+                <div class="innerRight inner">
+                    <p><strong>Currencies:</strong> ${data.currencies}</p>
+                    <p><strong>Languages:</strong> ${data.languages}</p>
+                </div>
+            </div>
+        </div>
+    </div>`
+    const back=countryExtra.querySelector(".back")
+    back.addEventListener("click", ()=> {
+    countryExtra.classList.toggle("show")
+})
+
 }
 
 // showCountry(data) shows country data for each country in the array
@@ -67,12 +93,16 @@ function showCountry(data) {
         <p><strong>Population:</strong> ${data.population}</p>
         <p class="regionName"><strong>Region:</strong> ${data.region}</p>
         <p><strong>Capital:</strong> ${data.capital}</p>
-        <button class="more" onclick="toggleMore()"> More Info </button>
+        <button class="more" > More Info </button>
     </div>
     `
     // appendChild appends a country node to the last child of countriesElem
     countriesElem.appendChild(country);
-    
+
+    const more = country.querySelector(".more")
+    more.addEventListener("click", ()=> {
+        toggleMore(data);
+    })
 }
 
 // addEventListener executes when a click is detected on dropDown
@@ -115,6 +145,3 @@ toggle.addEventListener("click", ()=> {
     moon.classList.toggle("fas")
 })
 
-back.addEventListener("click", ()=> {
-    countryExtra.classList.toggle("show")
-})
