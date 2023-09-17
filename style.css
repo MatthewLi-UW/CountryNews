@@ -331,3 +331,10 @@ button{
     width: 100%;
     margin-top: 100px;
 }
+
+.citation {
+    display: flex;
+    justify-content: right;
+    padding-right: 50px;
+    padding-bottom: 50px;
+}
