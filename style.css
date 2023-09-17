@@ -230,14 +230,40 @@ button{
     display: none;
 }
 
+.extraContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .countryExtra {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    height: 70%;
     background: var(--bgColor);
     padding: 30px;
+    overflow: auto;
+    justify-self: center;
+}
+
+.news {
+    background-color: var(--countrybgColor);
+    color: var(--fontColor);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background: var(--bgColor);
+    padding: 30px;
+    overflow: auto;
+    border-top: solid;
+    border-width: 1px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.readMore {
+    letter-spacing: 1px;
+    color: var(--fontColor2);
 }
 
 .back {
@@ -256,21 +282,21 @@ button{
 
 .extra {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
+    align-items: center;
     height: 100%;
     width: 100%;
 }
 
 .leftExtra {
-    width: 50%;
+    width: 30%;
 }
 
 .leftExtra img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .rightExtra {

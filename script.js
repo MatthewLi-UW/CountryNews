@@ -11,6 +11,7 @@ const search=document.querySelector(".search")
 const toggle=document.querySelector(".toggle")
 const moon=document.querySelector(".moon")
 const countryExtra=document.querySelector(".countryExtra")
+const news=document.querySelector(".news")
 const arrow=document.querySelector(".arrow")
 // note: do NOT use a period before the class name
 const regionName=document.getElementsByClassName("regionName")
@@ -45,20 +46,11 @@ async function getCountry() {
 // running getCountry function
 getCountry()
 
-// Define a container for news articles
-const newsContainer = document.createElement("div");
-newsContainer.classList.add("bottomExtra");
-
 // toggleMore toggles the extra info page, which is used in the next function
 function toggleMore(data) {
     countryExtra.classList.toggle("show");
-    
-    // Check if the news container is already appended to the countryExtra
-    if (!countryExtra.contains(newsContainer)) {
-      countryExtra.appendChild(newsContainer); // Append the news container if not already present
-    }
-  
-    if (countryExtra.classList.contains("show")) {
+    news.classList.toggle("show");
+   
       // If the countryExtra is shown, populate it with the extra info content
       countryExtra.innerHTML = `
         <button class="back">Back</button>
@@ -72,10 +64,11 @@ function toggleMore(data) {
                     <div class="innerLeft inner">
                         <p><strong>Native Name:</strong> ${data.name.common}</p>
                         <p><strong>Official Name:</strong> ${data.name.official}</p>
-                        <p><strong>Region:</strong> ${data.region}</p>
+                        <p><strong>Population:</strong> ${data.population}</p>
+                        
                     </div>
                     <div class="innerRight inner">
-                        <p><strong>Population:</strong> ${data.population}</p>
+                        <p><strong>Region:</strong> ${data.region}</p>
                         <p><strong>Sub Region:</strong> ${data.subregion}</p>
                         <p><strong>Capital:</strong> ${data.capital}</p>
                     </div>
@@ -88,8 +81,9 @@ function toggleMore(data) {
       const back = countryExtra.querySelector(".back");
       back.addEventListener("click", () => {
         countryExtra.classList.toggle("show");
+        news.classList.toggle("show");
       });
-    }
+    
   
   // Fetch news data and append it to the news container
   var url = `https://newsapi.org/v2/top-headlines?country=${data.cca2}&apiKey=0e89fbfdd4ae4b8aab1f68d69b990797`;
@@ -101,55 +95,23 @@ function toggleMore(data) {
     })
     .then(function(data) {
       // Construct the HTML content with the fetched news data
-      var newsHTML = '<h2>Top Headlines</h2>';
+      var newsHTML = '<h2>Top Headlines in This Country: <h3>(Disclaimer: Some countries are not supported, SORRY!)</h3></h2> <br>';
       data.articles.forEach(function(article) {
         newsHTML += `
           <div class="article">
             <h3>${article.title}</h3>
-            <a href="${article.url}" target="_blank">Read More</a>
+            <a href="${article.url}" target="_blank" class="readMore">Read More</a>
           </div>
         `;
       });
   
       // Append the newsHTML to the news container
-      newsContainer.innerHTML = newsHTML;
+      news.innerHTML = newsHTML;
     })
     .catch(function(error) {
       console.error('Error fetching news data:', error);
     });
 }
-
-// // toggleMore toggles the extra info page, which is used in the next function
-// function toggleMore(data) {
-//     countryExtra.classList.toggle("show");
-//     countryExtra.innerHTML = `<button class="back">Back</button>
-//     <div class="extra">
-//         <div class="leftExtra">
-//             <img src="${data.flags.svg}" alt="">
-//         </div>
-//         <div class="rightExtra">
-//             <h1>${data.name.common}</h1>
-//             <div class="extraInfo">
-//                 <div class="innerLeft inner">
-//                     <p><strong>Native Name:</strong> ${data.name.common}</p>
-//                     <p><strong>Official Name:</strong> ${data.name.official}</p>
-//                     <p><strong>Region:</strong> ${data.region}</p>
-                    
-//                 </div>
-//                 <div class="innerRight inner">
-//                     <p><strong>Population:</strong> ${data.population}</p>
-//                     <p><strong>Sub Region:</strong> ${data.subregion}</p>
-//                     <p><strong>Capital:</strong> ${data.capital}</p>
-//                 </div>
-//             </div>
-//         </div>
-//     </div>`
-//     const back=countryExtra.querySelector(".back")
-//     back.addEventListener("click", ()=> {
-//     countryExtra.classList.toggle("show")
-// })
-
-// }
 
 // showCountry(data) shows country data for each country in the array
 function showCountry(data) {
