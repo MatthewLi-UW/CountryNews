@@ -22,6 +22,7 @@ async function getCountry() {
         response.forEach(element => {
             showCountry(element)
         });
+    // Error handling
     } catch (error) {
         console.log('Error:', error);
     }
@@ -98,6 +99,7 @@ function toggleMore(data) {
 function showCountry(data) {
     const country=document.createElement("div");
     country.classList.add("country");
+    // Display country-specific information
     country.innerHTML=
         `
         <div class="country-img">
