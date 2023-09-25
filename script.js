@@ -88,6 +88,7 @@ function toggleMore(data) {
         // Append newsHTML
         news.innerHTML = newsHTML;
     })
+    // Error handling
     .catch(function(error) {
       console.error('Error fetching news data:', error);
     });
@@ -153,3 +154,4 @@ toggle.addEventListener("click", ()=> {
     moon.classList.toggle("fas")
 })
 
+// Note: APIs used are REST Countries and NewsAPI
