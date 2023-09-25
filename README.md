@@ -2,11 +2,14 @@
 
 This application, containing data on over 250 countries, allows the user to search and filter for countries of their choice.
 
+Search Feature:
 ![search feature (2)](https://github.com/MatthewLi-UW/Countries/assets/112432294/9770750e-0bcc-4547-9a34-696468d97fe3)
+
+Filter Feature:
 ![filter feature](https://github.com/MatthewLi-UW/Countries/assets/112432294/29b7eb73-56c1-4bb2-9510-348981d08dc7)
 
 The More Info button is available to obtain more information about a specific country.
-(insert gif of clicking more info)
+![more info](https://github.com/MatthewLi-UW/Countries/assets/112432294/de552880-1501-40e9-9cef-352ce6b914a5)
 
 In the extra information section, we can see detailed data such as native names and sub-regions. Additionally, for supported countries, the top 20 news headlines in that country are displayed with clickable links (opens in new tab).
 (insert gif of clicking link)
