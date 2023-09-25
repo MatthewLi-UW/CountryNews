@@ -14,7 +14,7 @@ The More Info button is available to obtain more information about a specific co
 
 ### Top News Headlines
 In the extra information section, we can see detailed data such as native names and sub-regions. Additionally, for supported countries, the top 20 news headlines in that country are displayed with clickable links (opens in new tab).
-![news 2](https://github.com/MatthewLi-UW/Countries/assets/112432294/343e33ee-a5f1-4640-8403-7e3e2832d71a)
+![news 2](https://github.com/MatthewLi-UW/CountryNews/assets/112432294/ce5bb197-7b1a-4ecc-aec3-60b77a0b4d8d)
 
 ### Dark Mode 
 Finally, if you like the dark (or don't like the sun), a dark mode toggler is available.
