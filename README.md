@@ -1,6 +1,7 @@
 # Country Information and Breaking News
 
 This application, containing data on over 250 countries, allows the user to search and filter for countries of their choice.
+Please allow a second for preview GIFs to load!
 
 ### Search Feature:
 ![search feature (2)](https://github.com/MatthewLi-UW/CountryNews/assets/112432294/8cb83b62-4008-4017-8553-d4ef1eb88102)
