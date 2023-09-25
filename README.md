@@ -21,6 +21,3 @@ In the extra information section, we can see detailed data such as native names 
 ### Dark Mode 
 Finally, if you like the dark (or don't like the sun), a dark mode toggler is available.
 ![dark mode](https://github.com/MatthewLi-UW/CountryNews/assets/112432294/6aa49e38-0461-4a28-bb4a-80c5fa7e18a8)
-
-
-Made with ❤️ by Matthew
