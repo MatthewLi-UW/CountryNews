@@ -1,8 +1,4 @@
-// comments are to note down function purposes and JavaScript syntax
-
-// create constants from classes
-//  document.querySelector gets the first element with the class in the parameter
-//  note: to return all matches, use document.querySelectorAll()
+// Selecting DOM Elements
 const countriesElem=document.querySelector(".countries")
 const dropDown=document.querySelector(".dropDown")
 const dropElem=document.querySelector(".drop")
@@ -13,46 +9,33 @@ const moon=document.querySelector(".moon")
 const countryExtra=document.querySelector(".countryExtra")
 const news=document.querySelector(".news")
 const arrow=document.querySelector(".arrow")
-// note: do NOT use a period before the class name
 const regionName=document.getElementsByClassName("regionName")
 const countryName=document.getElementsByClassName("countryName")
 
-// getCountry() iteratively pulls data for each country
-//  async functions return a promise
-//  starts a long-running task while still being able to respond to other events while it's running
+// getCountry() fetches and displays country data
 async function getCountry() {
-    // try block is monitored for errors
-    // if error is found, stops code and control is transferred to the catch block
     try {
-        // HTTP request fetches from Rest Countries api into a constant
-        // await pauses execution until a promise is resolved or rejected
+        // Fetch data from the Rest Countries API
         const url=await fetch("https://restcountries.com/v3.1/all")
-        // extracts JSON data from the url returned by the previous step
         const response=await url.json()
-        // iteratively execute showCountry function for each element of the array
-        //  in this case, the array is response
-        //  for arrow functions: param => expression
+        // Iterate through the country data and display it
         response.forEach(element => {
             showCountry(element)
         });
     } catch (error) {
-        // error handling
         console.log('Error:', error);
     }
 }
 
-
-
-// running getCountry function
+// Initialize the application
 getCountry()
 
-// toggleMore toggles the extra info page, which is used in the next function
+// toggleMore(data) toggles the extra information page
 function toggleMore(data) {
     countryExtra.classList.toggle("show");
     news.classList.toggle("show");
-   
-      // If the countryExtra is shown, populate it with the extra info content
-      countryExtra.innerHTML = `
+    // Display country-specific information
+    countryExtra.innerHTML = `
         <button class="back">Back</button>
         <div class="extra">
             <div class="leftExtra">
@@ -76,87 +59,74 @@ function toggleMore(data) {
             </div>
         </div>
       `;
-  
-      // Add a click event listener to the Back button
-      const back = countryExtra.querySelector(".back");
-      back.addEventListener("click", () => {
+    
+    // Click event listener on Back button
+    const back = countryExtra.querySelector(".back");
+    back.addEventListener("click", () => {
         countryExtra.classList.toggle("show");
         news.classList.toggle("show");
-      });
-    
-  
-  // Fetch news data and append it to the news container
-  var url = `https://newsapi.org/v2/top-headlines?country=${data.cca2}&apiKey=0e89fbfdd4ae4b8aab1f68d69b990797`;
-  var req = new Request(url);
-  
-  fetch(req)
+    });
+
+    // Fetch news data and append it to the news container
+    var url = `https://newsapi.org/v2/top-headlines?country=${data.cca2}&apiKey=0e89fbfdd4ae4b8aab1f68d69b990797`;
+    var req = new Request(url);
+    fetch(req)
     .then(function(response) {
-      return response.json(); // Parse the response JSON
+      return response.json();
     })
     .then(function(data) {
-      // Construct the HTML content with the fetched news data
-      var newsHTML = '<h2>Top Headlines in This Country: <h3>(Disclaimer: Some countries are not supported, SORRY!)</h3></h2> <br>';
-      data.articles.forEach(function(article) {
-        newsHTML += `
-          <div class="article">
-            <h3>${article.title}</h3>
-            <a href="${article.url}" target="_blank" class="readMore">Read More</a>
-          </div>
-        `;
-      });
-  
-      // Append the newsHTML to the news container
-      news.innerHTML = newsHTML;
+        // Construct the HTML content
+        var newsHTML = '<h2>Top Headlines in This Country: <h3>(Disclaimer: Some countries are not supported, SORRY!)</h3></h2> <br>';
+        data.articles.forEach(function(article) {
+            newsHTML += `
+            <div class="article">
+                <h3>${article.title}</h3>
+                <a href="${article.url}" target="_blank" class="readMore">Read More</a>
+            </div>
+            `;
+        });
+        // Append newsHTML
+        news.innerHTML = newsHTML;
     })
     .catch(function(error) {
       console.error('Error fetching news data:', error);
     });
 }
 
-// showCountry(data) shows country data for each country in the array
+// showCountry(data) displays country data
 function showCountry(data) {
-    // creates a div
     const country=document.createElement("div");
-    // adds the "country" class to the div that was just created
     country.classList.add("country");
-    // innerHTML sets the HTML content of the country element
-    //  make sure to use `` (tilde, not quotes)
     country.innerHTML=
-    `
-    <div class="country-img">
-        <img src="${data.flags.svg}" alt="">
-    </div>
-    <div class="country-info">
-        <h5 class="countryName">${data.name.common} (${data.name.official})</h5>
-        <p><strong>Population:</strong> ${data.population}</p>
-        <p class="regionName"><strong>Region:</strong> ${data.region}</p>
-        <p><strong>Capital:</strong> ${data.capital}</p>
-        <button class="more" > More Info </button>
-    </div>
-    `
-    // appendChild appends a country node to the last child of countriesElem
+        `
+        <div class="country-img">
+            <img src="${data.flags.svg}" alt="">
+        </div>
+        <div class="country-info">
+            <h5 class="countryName">${data.name.common} (${data.name.official})</h5>
+            <p><strong>Population:</strong> ${data.population}</p>
+            <p class="regionName"><strong>Region:</strong> ${data.region}</p>
+            <p><strong>Capital:</strong> ${data.capital}</p>
+            <button class="more" > More Info </button>
+        </div>
+        `
     countriesElem.appendChild(country);
-
     const more = country.querySelector(".more")
     more.addEventListener("click", ()=> {
         toggleMore(data);
     })
 }
 
-// addEventListener executes when a click is detected on dropDown
-//  ()=> is an unnamed function (basically lambda)
+// Click event listener on the DropDown element
 dropDown.addEventListener("click", (event)=>{
     dropElem.classList.toggle("showDropDown");
     arrow.classList.toggle("flip");
 })
 
-// iteratively checks if the region matches for each country
+// Evennt listener for filter functionality
 region.forEach(element => {
     element.addEventListener("click", ()=> {
-        // console.log(element);
         Array.from(regionName).forEach(elem => {
-            // console.log(elem.innerText)
-            // console.log(element.innerText)
             if(elem.innerText.includes(element.innerText) || element.innerText=="All") {
                 elem.parentElement.parentElement.style.display=""
             } else {
@@ -166,9 +136,8 @@ region.forEach(element => {
     })
 });
 
-// iteratively checks each elem in the array made of country names against input
+// Event listener for search functionality
 search.addEventListener("input", ()=> {
-    // console.log(search.value);
     Array.from(countryName).forEach(elem => {
         if(elem.innerText.toLowerCase().includes(search.value.toLowerCase())) {
             elem.parentElement.parentElement.style.display=""
@@ -178,6 +147,7 @@ search.addEventListener("input", ()=> {
     });
 })
 
+// Event listener for dark mode
 toggle.addEventListener("click", ()=> {
     document.body.classList.toggle("dark-mode")
     moon.classList.toggle("fas")
