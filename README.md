@@ -12,7 +12,7 @@ The More Info button is available to obtain more information about a specific co
 ![more info](https://github.com/MatthewLi-UW/Countries/assets/112432294/de552880-1501-40e9-9cef-352ce6b914a5)
 
 In the extra information section, we can see detailed data such as native names and sub-regions. Additionally, for supported countries, the top 20 news headlines in that country are displayed with clickable links (opens in new tab).
-(insert gif of clicking link)
+![news 2](https://github.com/MatthewLi-UW/Countries/assets/112432294/343e33ee-a5f1-4640-8403-7e3e2832d71a)
 
 Finally, if you like the dark (or don't like the sun), a dark mode toggler is available.
-(insert gif of clicking dark mode)
+![dark mode](https://github.com/MatthewLi-UW/Countries/assets/112432294/0e8ed020-42fa-4a28-a465-b285061af520)
