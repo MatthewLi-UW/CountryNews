@@ -13,7 +13,7 @@ The More Info button is available to obtain more information about a specific co
 ![more info](https://github.com/MatthewLi-UW/CountryNews/assets/112432294/b376a4c8-9441-4772-9b10-4a7739c3b2d9)
 
 ### Top News Headlines
-In the extra information section, we can see detailed data such as native names and sub-regions. Additionally, for supported countries, the top 20 news headlines in that country are displayed with clickable links (opens in new tab).
+In the extra information section, we can see detailed data such as native names and sub-regions. Additionally, for supported countries, the top news headlines in that country are displayed with clickable links (opens in new tab).
 ![news 2](https://github.com/MatthewLi-UW/CountryNews/assets/112432294/ce5bb197-7b1a-4ecc-aec3-60b77a0b4d8d)
 
 ### Dark Mode 
