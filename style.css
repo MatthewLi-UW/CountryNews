@@ -4,10 +4,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Noto Serif JP', serif;
 }
 
 body {
-    font-family: 'Noto Serif JP', serif;
     --bgColor:hsl(0, 0%, 98%);
     --countrybgColor:hsl(0, 0%, 98%);
     --fontColor:hsl(200, 15%, 8%);
@@ -49,13 +49,11 @@ body {
 }
 
 button{
-    outline: none;
     border: 0;
     background: transparent;
 }
 
 .toggle {
-    font-family: 'Noto Serif JP', serif;
     font-size: 18px;
     cursor: pointer;
     color: var(--fontColor);
@@ -74,7 +72,6 @@ button{
 }
 
 .form-control input {
-    font-family: 'Noto Serif JP', serif;
     background: var(--countrybgColor);
     color: var(--fontColor);
     width: 100%;
@@ -196,7 +193,6 @@ button{
 }
 
 .more {
-    font-family: 'Noto Serif JP', serif;
     font-weight: bold;
     letter-spacing: 1px;
     color: var(--fontColor2);
@@ -328,7 +324,6 @@ button{
 }
 
 .bottomExtra {
-    width: 100%;
     margin-top: 100px;
 }
 
