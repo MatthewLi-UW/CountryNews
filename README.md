@@ -1,8 +1,7 @@
 # Country Information and Breaking News
 
 This application, containing data on over 250 countries, allows the user to search and filter for countries of their choice.
-https://github.com/MatthewLi-UW/Countries/assets/112432294/9bc3092b-d603-4908-b98a-654fbea8d8a6
-
+![search feature](https://github.com/MatthewLi-UW/Countries/assets/112432294/b3544c32-f5ad-4b61-a7ff-557631e22cfb)
 
 The More Info button is available to obtain more information about a specific country.
 (insert gif of clicking more info)
