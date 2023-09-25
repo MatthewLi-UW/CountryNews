@@ -113,6 +113,7 @@ function showCountry(data) {
         `
     countriesElem.appendChild(country);
     const more = country.querySelector(".more")
+    // Click event listener on extra information button
     more.addEventListener("click", ()=> {
         toggleMore(data);
     })
